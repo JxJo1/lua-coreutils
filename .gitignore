@@ -1,0 +1,11 @@
+# Tell git not to track these folders and files
+/luarocks
+/lua
+/env
+/.luarocks
+
+# WIP
+.github/*
+flake.nix
+flake.lock
+Makefile
