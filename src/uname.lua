@@ -2,6 +2,7 @@
 
 
 local utsname = require("posix.sys.utsname")
+local main = require("main")
 local uname = utsname.uname()
 local machine  = uname.machine
 local nodename = uname.nodename
@@ -10,6 +11,15 @@ local sysname = uname.sysname
 local os_version = uname.version
 local arg_len = #arg
 local PROGRAM_NAME = "uname"
+
+local unameTbl = {
+    uname.machine,
+    uname.nodename,
+    uname.release,
+    uname.sysname,
+    uname.version
+}
+
 
 function help()
     help_text = [[
@@ -38,7 +48,9 @@ if arg_len == 0 then
 else
    for i = 1, arg_len do
       if arg[i] == "-a" or arg[i] == "--all" then
-        print(sysname, nodename, release, os_version, machine)
+        for k, v in pairs(unameTbl) do
+          print(v)
+        end
         os.exit(0)
       elseif arg[i] == "-s" or arg[i] == "--kernel-name" then
         print(sysname)   
@@ -59,10 +71,13 @@ else
         help()
         os.exit(0)
       elseif arg[i] == "--version" then
-        print(PROGRAM_NAME.." (lua coreutils) 0.0.1")
+        print(PROGRAM_NAME.." (lua coreutils) 0.0.2")
         os.exit(0)
     elseif string.sub(arg[i], 1, 1) == "-" and #arg[i] > 1 then
       print((PROGRAM_NAME..": invalid argument -- '%s'\nFor more information try 'uname --help"):format(arg[i]))
+      os.exit(0)
+    else
+      print(PROGRAM_NAME..": extra operand '"..arg[i].."'\n".."Try '"..PROGRAM_NAME.." --help' for more information")
       os.exit(0)
     end
     end

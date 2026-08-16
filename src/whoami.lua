@@ -29,10 +29,13 @@ else
     if arg[i] == "-h" or arg[i] == "--help" then
       help()
   else if arg[i] == "-v" or arg[i] == "--version" then
-     print(PROGRAM_NAME.." (lua coreutils) 0.0.1")
+     print(PROGRAM_NAME.." (lua coreutils) 0.0.2")
   else if string.sub(arg[i], 1, 1) == "-" and #arg[i] > 1 then
     print((PROGRAM_NAME..": invalid argument '%s'"):format(arg[i]))
-    os.exit(1)
+    os.exit(0)
+  else
+      print(PROGRAM_NAME..": extra operand '"..arg[i].."'\n".."Try '"..PROGRAM_NAME.." --help' for more information")
+      os.exit(0)
   end
     end
     end

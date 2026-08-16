@@ -17,7 +17,9 @@ function help()
 end
 
 
-local args = {}
+
+local words = {}
+
 local hasWords = false
 if arg_len == 0 then
   while true do
@@ -31,11 +33,12 @@ else
           print(PROGRAM_NAME.." (lua coreutils) 0.0.1")
         elseif arg[i] ~= nil and string.sub(arg[i], 1, 1) ~= "-" then
           text = " '%s' "
-          table.insert(args, text.format(arg[i]))
+          table.insert(words, text.format(arg[i]))
           hasWords = true
         elseif string.sub(arg[i], 1, 1) == "-" and #arg[i] > 1 then
            print((PROGRAM_NAME..": invalid argument '%s'"):format(arg[i]))
            os.exit(0)
+        
         end
     end
 end
@@ -43,6 +46,6 @@ end
 
 if hasWords == true then
   while true do 
-      print(table.concat(args, " "))
+      print(table.concat(words, " "))
   end 
 end
