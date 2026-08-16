@@ -6,11 +6,17 @@ Below is a list of commands reimplemented and the implementation progress of the
 
 | Commands | Status  | 
 | ----------- | ----------- |
-| yes  | beta |
-| whoami  | complete |
+| ls | wip |
+| cp | wip |
+| rm | wip |
+| mv | wip |
+| echo | wip |
+| yes  | wip |
+| whoami  | wip |
 | true  | complete |
 | false | complete |
 | uname | complete |
+| sleep | wip |
 
 
 
@@ -24,7 +30,7 @@ You need to have the following packages installed via your distro's package mana
 - luarocks 
 
 ## Installing through source
-All you need to do is simply download the zip file from the [Releases page]() and extract them or you can simply clone the repo 
+All you need to do is simply download the zip file from the [Releases page](https://github.com/JxJo1/lua-coreutils/releases) and extract them or you can simply clone the repo 
 
 ```
 git clone https://github.com/JxJo1/lua-coreutils
@@ -42,7 +48,7 @@ After you've done one of the following, you can then run any command in the foll
 
 ## Will this project be GPL licensed just like GNU Coreutils?
 
-No, it will be MIT licensed only.
+No, it will be MIT licensed only, the same license that Lua uses. 
 
 ## Will all of the commands be cross-platform, including windows? 
 
@@ -57,6 +63,6 @@ I'm still trying to figure out how to compile those source files into standalone
 
 
 # License 
-This project is licensed under the [MIT License](https://opensource.org/license/MIT), see the [LICENSE]() file for details
+This project is licensed under the [MIT License](https://opensource.org/license/MIT), see the [LICENSE](https://github.com/JxJo1/lua-coreutils/blob/main/LICENSE) file for details
 
 GNU Coreutils is licensed under the [GPL-3.0 or later](https://www.gnu.org/licenses/gpl-3.0.en.html) license

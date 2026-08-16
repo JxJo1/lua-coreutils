@@ -1,5 +1,5 @@
 package = "lua-coreutils"
-version = "0.0.1-1"
+version = "0.0.2-1"
 
 source = {
    url = "git+https://github.com/JxJo1/lua-coreutils"
@@ -11,7 +11,7 @@ description = {
 }
 dependencies = {
    "lua >= 5.1",
-   "luaposix == 36.3-1"
+   "luaposix >= 36.3-1"
 }
 build = {
    type = "builtin",

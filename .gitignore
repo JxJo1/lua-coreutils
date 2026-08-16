@@ -3,9 +3,14 @@
 /lua
 /env
 /.luarocks
+test/
+
+
 
 # WIP
 .github/*
 flake.nix
 flake.lock
 Makefile
+src/sleep.lua
+src/ls.lua
