@@ -20,6 +20,11 @@ Below is a list of commands reimplemented and the implementation progress of the
 
 
 
+
+# Examples on how to use the commands
+
+
+
 # Install
 
 ## Prerequisites
@@ -39,7 +44,7 @@ cd lua-coreutils
 
 This will create the folder and build the commands that are executables into the `env/bin` directory.
 ```
-luarocks make lua-coreutils-0.0.1-1.rockspec --tree=env
+luarocks make lua-coreutils-0.0.2-1.rockspec --tree=env
 ```
 
 After you've done one of the following, you can then run any command in the following directory such as `env/bin/uname` for example and you're basically done!
@@ -57,9 +62,6 @@ Porting these commands to windows would obviously not be possible, because since
 ## Will this be a replacement to GNU Coreutils?
 
 This project is not intended to be a full on replacement of GNU coreutils, or reinventing the "third wheel" but rather as a side hobby project that i'm doing simply for fun, and for experimenting Lua and the capabilites of the programming language :)
-
-## Why not distribute those as executables into a zip file?
-I'm still trying to figure out how to compile those source files into standalone executables and the process is quite complicated so it'll take some time for me to find workarounds or ways on how to do it.
 
 
 # License 

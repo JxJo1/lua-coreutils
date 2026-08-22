@@ -2,7 +2,6 @@
 
 
 local utsname = require("posix.sys.utsname")
-local main = require("main")
 local uname = utsname.uname()
 local machine  = uname.machine
 local nodename = uname.nodename
@@ -11,6 +10,7 @@ local sysname = uname.sysname
 local os_version = uname.version
 local arg_len = #arg
 local PROGRAM_NAME = "uname"
+local VERSION = require("src.version")
 
 local unameTbl = {
     uname.machine,
@@ -22,35 +22,33 @@ local unameTbl = {
 
 
 function help()
-    help_text = [[
-    Usage: uname [OPTION]...
-    Print certain system information.  With no OPTION, same as -s. 
+help_text = [[
+Usage: uname [OPTION]...
+Print certain system information.  With no OPTION, same as -s. 
 
 
-    Options: 
-    -a, --all             Print all information of the system 
-    -s, --kernel-name     Print the name of the kernel
-    -n, --nodename        Print the nodename (the nodename includes the name of your computer in a network)
-    -r, --kernel-release  Print the kernel release
-    -v, --kernel-version  Print the kernel version
-    -m, --machine         Print the machine hardware name (processor type)
-    -h, --help            Print the help message and exit
-    --version             Display the version information and exit
-    ]]
-    print(help_text)
-
+Options: 
+-a, --all             Print all information of the system 
+-s, --kernel-name     Print the name of the kernel
+-n, --nodename        Print the nodename (the nodename includes the name of your computer in a network)
+-r, --kernel-release  Print the kernel release
+-v, --kernel-version  Print the kernel version
+-m, --machine         Print the machine hardware name (processor type)
+-h, --help            Print the help message and exit
+--version             Display the version information and exit
+]]
+print(help_text)
+os.exit(0)
 end 
 
 
 
 if arg_len == 0 then
-   print(sysname)
+   print(unameTbl[4])
 else
    for i = 1, arg_len do
       if arg[i] == "-a" or arg[i] == "--all" then
-        for k, v in pairs(unameTbl) do
-          print(v)
-        end
+        print(table.concat(unameTbl, " "))
         os.exit(0)
       elseif arg[i] == "-s" or arg[i] == "--kernel-name" then
         print(sysname)   
@@ -71,7 +69,7 @@ else
         help()
         os.exit(0)
       elseif arg[i] == "--version" then
-        print(PROGRAM_NAME.." (lua coreutils) 0.0.2")
+        print(PROGRAM_NAME.." (lua coreutils) "..VERSION)
         os.exit(0)
     elseif string.sub(arg[i], 1, 1) == "-" and #arg[i] > 1 then
       print((PROGRAM_NAME..": invalid argument -- '%s'\nFor more information try 'uname --help"):format(arg[i]))

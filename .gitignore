@@ -8,9 +8,6 @@ test/
 
 
 # WIP
-.github/*
-flake.nix
-flake.lock
-Makefile
-src/sleep.lua
 src/ls.lua
+src/mkdir.lua
+.github/*

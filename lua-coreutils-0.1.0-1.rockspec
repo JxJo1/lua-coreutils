@@ -1,5 +1,5 @@
 package = "lua-coreutils"
-version = "0.0.2-1"
+version = "0.1.0-1"
 
 source = {
    url = "git+https://github.com/JxJo1/lua-coreutils"
@@ -22,7 +22,9 @@ build = {
          ["yes"] = "src/yes.lua",
          ["whoami"] = "src/whoami.lua",
          ["true"] = "src/true.lua",
-         ["false"] = "src/false.lua"
+         ["false"] = "src/false.lua",
+         ["sleep"] = "src/sleep.lua",
+         ["pwd"] = "src/pwd.lua"
       }
 
    },
