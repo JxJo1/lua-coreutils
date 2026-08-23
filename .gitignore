@@ -4,10 +4,13 @@
 /env
 /.luarocks
 test/
-
+*.src.rock
 
 
 # WIP
 src/ls.lua
 src/mkdir.lua
 .github/*
+
+
+*.tar.gz

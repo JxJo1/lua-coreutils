@@ -19,13 +19,9 @@ Below is a list of commands reimplemented and the implementation progress of the
 | sleep | wip |
 
 
-
-
-# Examples on how to use the commands
-
-
-
 # Install
+
+## Installing through source
 
 ## Prerequisites
 
@@ -34,9 +30,7 @@ You need to have the following packages installed via your distro's package mana
 - lua
 - luarocks 
 
-## Installing through source
-All you need to do is simply download the zip file from the [Releases page](https://github.com/JxJo1/lua-coreutils/releases) and extract them or you can simply clone the repo 
-
+Clone this repository
 ```
 git clone https://github.com/JxJo1/lua-coreutils
 cd lua-coreutils
@@ -44,10 +38,17 @@ cd lua-coreutils
 
 This will create the folder and build the commands that are executables into the `env/bin` directory.
 ```
-luarocks make lua-coreutils-0.0.2-1.rockspec --tree=env
+luarocks make lua-coreutils-0.1.0-1.rockspec --tree=env
 ```
 
-After you've done one of the following, you can then run any command in the following directory such as `env/bin/uname` for example and you're basically done!
+After you've done one of the following, you can then run any command in the following directory such as `env/bin/whoami` for example and you're basically done!
+
+## Installing binaries
+
+If you want the executable binaries, you can download them through the [Releases page](https://github.com/JxJo1/lua-coreutils/releases), extract them and simply run those commands, make sure to add `chmod +x` for each commands otherwise they won't run!  
+
+Example: `./sleep`
+
 
 # FAQ
 
