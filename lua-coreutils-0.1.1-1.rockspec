@@ -1,9 +1,9 @@
 package = "lua-coreutils"
-version = "0.1.0-1"
+version = "0.1.1-1"
 
 source = {
    url = "git+https://github.com/JxJo1/lua-coreutils",
-   tag = "v0.1.0", 
+   tag = "v0.1.1", 
 }
 description = {
    summary = "A work-in-progress reimplementation and an attempt of reimplementing GNU coreutils commands in Lua using luaposix",

@@ -6,11 +6,11 @@ local cwd = unistd.getcwd
 local readlink = unistd.readlink
 local PWD_ENV = os.getenv("PWD")
 local VERSION = require("src.version")
-local PROGRAM_NAME = "pwd"
+local PROGRAM_NAME = debug.getinfo(1, "S").source:sub(6,-5)
 
 function help()
 help_text = [[
-Usage: pwd [OPTION]...
+Usage: %s [OPTION]...
 Display the current working directory.
 
 
@@ -20,7 +20,7 @@ Options:
 -h, --help            Print the help message and exit
 --version             Display the version information and exit
 ]]
-print(help_text)
+print(help_text.format(help_text, PROGRAM_NAME))
 os.exit(0)
 end 
 
@@ -32,6 +32,7 @@ else
          help()
       elseif arg[i] == "-v" or arg[i] == "--version" then
           print(PROGRAM_NAME.." (lua coreutils) "..VERSION)
+          os.exit(0)
       elseif arg[i] == "-P" or arg[i] == "--physical" then
         local _, symlink = pcall(readlink, cwd())
         if symlink == nil then

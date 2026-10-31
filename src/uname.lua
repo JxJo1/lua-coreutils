@@ -9,7 +9,7 @@ local release = uname.release
 local sysname = uname.sysname
 local os_version = uname.version
 local arg_len = #arg
-local PROGRAM_NAME = "uname"
+local PROGRAM_NAME = debug.getinfo(1, "S").source:sub(6,-5)
 local VERSION = require("src.version")
 
 local unameTbl = {
@@ -23,7 +23,7 @@ local unameTbl = {
 
 function help()
 help_text = [[
-Usage: uname [OPTION]...
+Usage: %s [OPTION]...
 Print certain system information.  With no OPTION, same as -s. 
 
 
@@ -37,7 +37,7 @@ Options:
 -h, --help            Print the help message and exit
 --version             Display the version information and exit
 ]]
-print(help_text)
+print(help_text.format(help_text, PROGRAM_NAME))
 os.exit(0)
 end 
 

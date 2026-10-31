@@ -15,9 +15,10 @@ Below is a list of commands and the progress of each reimplementation of these f
 | whoami  | wip |
 | true  | complete |
 | false | complete |
-| uname | complete |
+| uname | wip |
 | sleep | wip |
 | mkdir | wip |
+| pwd | wip |
 
 # Install
 
@@ -38,7 +39,7 @@ cd lua-coreutils
 
 This will create the folder and build the commands that are executables into the `env/bin` directory.
 ```
-luarocks make lua-coreutils-0.1.0-1.rockspec --tree=env
+luarocks make lua-coreutils-0.1.1-1.rockspec --tree=env
 ```
 
 After you've done one of the following, you can then run any command in the following directory such as `env/bin/whoami` for example and you're basically done!
@@ -52,17 +53,17 @@ Example: `./sleep`
 
 # FAQ
 
-## Will this project be GPL licensed just like GNU Coreutils?
+## Will this project be GPL licensed like GNU Coreutils?
 
 It will be MIT licensed only, the same license that Lua uses. 
 
 ## Will all of the commands be cross-platform, including windows? 
 
-Porting these commands to Windows would obviously not be possible, because since the Windows NT ecosystem isn't POSIX-compliant natively, the POSIX-based commands & commands that utilize luaposix won't work on Windows, unless you're using something like [Windows Subsystem for Linux (WSL)](https://learn.microsoft.com/en-us/windows/wsl/about) if possible. I will add macOS support in the near future, for now i'm currently focusing towards linux.
+Porting these commands to Windows would obviously not be possible, because since the Windows NT ecosystem isn't POSIX-compliant, the POSIX-based commands & commands that utilize luaposix won't work on Windows, unless you're using something like [Windows Subsystem for Linux (WSL)](https://learn.microsoft.com/en-us/windows/wsl/about) if possible. I will add macOS support in the near future, for now i'm currently focusing towards linux.
 
 ## Will this be a replacement to GNU Coreutils?
 
-**This project is not intended to be a full on replacement of GNU coreutils**, or reinventing the wheel, but rather this is a side hobby project that i'm doing mainly for fun, and for experimenting Lua and the capabilites of the programming language :)
+**This project is not intended to be a full on replacement of GNU coreutils** or reinventing the wheel, this is a side hobby project that i'm doing mainly for fun and for experimenting Lua and the capabilites of the programming language :)
 
 ## Are you gonna distribute lua-coreutils through the distro's repos such as the AUR, Copr, Alpine or the NixOS repositories? 
 

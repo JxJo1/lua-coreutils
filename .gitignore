@@ -1,16 +1,17 @@
 # Tell git not to track these folders and files
 /luarocks
+
+# Tell git not to track these
 /lua
 /env
 /.luarocks
-test/
 *.src.rock
+*.tar.gz
+test/
 
 
-# WIP
-src/ls.lua
-src/mkdir.lua
 .github/*
 
+# WIP
+src/echo.lua 
 
-*.tar.gz
