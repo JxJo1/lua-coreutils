@@ -1,0 +1,57 @@
+name: Deploy To Luarocks
+
+on:
+  push:
+    branches: [main]
+    tags: 'v*.*.*'
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      
+      - name: Checkout
+        uses: actions/checkout@v7
+      - name: Set the env variable
+        env: 
+          TAG: ${{ github.ref_name }}
+
+        run: |
+          echo "ROCKSPEC_VERSION="${TAG#v}"" >> "$GITHUB_ENV"
+
+      - name: Setup Lua
+        uses: leafo/gh-actions-lua@v13
+        with:
+          luaVersion: "5.4"
+
+      - name: Setup LuaRocks
+        uses: leafo/gh-actions-luarocks@v6
+
+      - name: Install musl-gcc
+        run: |
+          sudo apt-get update 
+          sudo apt-get install -y musl-tools
+
+      - name: Install luastatic
+        run: |
+          luarocks install luastatic
+      - name: Run script 
+        run: |
+          ./compile.sh
+
+      
+     ## - name: Upload to LuaRocks
+     ##  env:
+     ##     LUAROCKS_API_KEY: ${{ secrets.LUAROCKS_API_KEY }}
+     ##  run: |
+     ##     luarocks upload lua-coreutils-${ROCKSPEC_VERSION}.rockspec --api-key=$LUAROCKS_API_KEY
+      - name: Create Github release
+        uses: softprops/action-gh-release@v3
+        if: github.ref_type == 'tag'
+        with: 
+          files: |
+            lua-coreutils-${ROCKSPEC_VERSION}.tar.gz 
+
