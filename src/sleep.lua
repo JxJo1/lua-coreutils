@@ -22,7 +22,7 @@ local VERSION = require("src.version")
 
 function help()
 help_text = ([[
-Usage: %s NUMBER[SUFFIX]...
+Usage: sleep NUMBER[SUFFIX]...
 sleep OPTION
 Pause for a specific NUMBER of seconds, the SUFFIX may be 's' for seconds which is the default, 
 'm' for minutes, 'h' for hours, 'd' for days or even 'ms' for milliseconds. Optionally,
@@ -32,7 +32,7 @@ Options:
 -h, --help            Print the help message and exit
 --version             Display the version information and exit
 ]])
-    print(help_text.format(help_text, PROGRAM_NAME))
+    print(help_text)
     os.exit(0)
 end
 

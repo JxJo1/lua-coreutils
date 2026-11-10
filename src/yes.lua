@@ -9,7 +9,7 @@ local stdout = unistd.STDOUT_FILENO
 
 function help()
     help_text = ([[
-    Usage: %s [STRING]...
+    Usage: yes [STRING]...
     Repeatedly print a line with a string (or y if no string specified)
 
 
@@ -17,7 +17,7 @@ function help()
     -h, --help  Print the help message and exit 
     -v, --version Print the version      
     ]])
-    print(help_text.format(help_text, PROGRAM_NAME))
+    print(help_text)
     os.exit(0)
 end
 

@@ -23,7 +23,7 @@ local unameTbl = {
 
 function help()
 help_text = [[
-Usage: %s [OPTION]...
+Usage: uname [OPTION]...
 Print certain system information.  With no OPTION, same as -s. 
 
 
@@ -37,7 +37,7 @@ Options:
 -h, --help            Print the help message and exit
 --version             Display the version information and exit
 ]]
-print(help_text.format(help_text, PROGRAM_NAME))
+print(help_text)
 os.exit(0)
 end 
 

@@ -9,4 +9,5 @@ test/
 *.luastatic.c
 bin/
 prerequisites/
+src/mkdir.lua
 

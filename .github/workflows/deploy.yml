@@ -20,7 +20,10 @@ jobs:
           TAG: ${{ github.ref_name }}
 
         run: |
-          echo "ROCKSPEC_VERSION="${TAG#v}"" >> "$GITHUB_ENV"
+          echo "ROCKSPEC_VERSION="${TAG#refs/*/}"" >> "$GITHUB_ENV"
+          echo "Rockspec version: $ROCKSPEC_VERSION"
+          echo "${{ github.ref_name }}"
+          echo "${{env.ROCKSPEC_VERSION}}"
 
       - name: Setup Lua
         uses: leafo/gh-actions-lua@v13
@@ -43,11 +46,12 @@ jobs:
           ./compile.sh
 
       
-     ## - name: Upload to LuaRocks
-     ##  env:
-     ##     LUAROCKS_API_KEY: ${{ secrets.LUAROCKS_API_KEY }}
-     ##  run: |
-     ##     luarocks upload lua-coreutils-${ROCKSPEC_VERSION}.rockspec --api-key=$LUAROCKS_API_KEY
+      #- name: Upload to LuaRocks
+        #env:
+        #    LUAROCKS_API_KEY: ${{ secrets.LUAROCKS_API_KEY }}
+        #run: |
+        #    luarocks upload lua-coreutils-${ROCKSPEC_VERSION}.rockspec --api-key=$LUAROCKS_API_KEY
+
       - name: Create Github release
         uses: softprops/action-gh-release@v3
         if: github.ref_type == 'tag'

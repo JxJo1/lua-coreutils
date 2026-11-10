@@ -10,7 +10,7 @@ local PROGRAM_NAME = debug.getinfo(1, "S").source:sub(6,-5)
 
 function help()
 help_text = [[
-Usage: %s [OPTION]...
+Usage: pwd [OPTION]...
 Display the current working directory.
 
 
@@ -20,7 +20,7 @@ Options:
 -h, --help            Print the help message and exit
 --version             Display the version information and exit
 ]]
-print(help_text.format(help_text, PROGRAM_NAME))
+print(help_text)
 os.exit(0)
 end 
 

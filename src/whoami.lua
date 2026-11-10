@@ -10,7 +10,7 @@ local VERSION = require("src.version")
 
 function help()
 help_text = [[
-Usage: %s
+Usage: whoami
 Print the current user name
 
 
@@ -18,7 +18,7 @@ Options:
 -h, --help  Print the help message and exit 
 -v, --version Print the version      
 ]]
-    print(help_text.format(help_text, PROGRAM_NAME))
+    print(help_text)
     os.exit(0)
 end
 

@@ -3,7 +3,7 @@
 
 
 LUA_VERSION=5.4.8
-VERSION=0.1.1-1
+VERSION=0.1.2-1
 
 mkdir -p prerequisites/ && cd prerequisites/
 
